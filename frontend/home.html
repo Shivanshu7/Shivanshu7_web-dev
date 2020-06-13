@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>
+Heading file
+</title>
+<link rel="stylesheet" type="text/css" href="ext.css">
+<style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  font-size: 20px;
+}
+
+.container {
+  position: relative;
+  max-width: 1350px;
+  margin: 0 auto;
+}
+
+.container img {vertical-align: middle;}
+
+.container .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0.5, 0.45, 0.5, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding-left: 200px;
+  padding-top:200px;
+}
+table{color:white;}
+</style>
+</head>
+<body color="white">
+
+
+
+<div class="container">
+  <img src="train.jpg" alt="Notebook" style="width:100%;height:100%;">
+  <div class="content">
+ <table style="color:white;" class="xyz" align="center">
+
+	<tr > <td></td>
+	<td><img src="book.png" align="left"  height="120" width="120"  alt="no image" ></td>
+	
+	</tr>
+	<tr>
+		<td >From:</td>
+		<td><input type="text" id="from"name="from"></td>
+	</tr>
+	<tr > <td></td>
+	<td><button onclick="swap()"><img src="swap.png" align="left"  height="25" width="25"  alt="no image"  ></button>
+	
+	
+	</td>
+	
+	</tr>
+	<tr>
+		<td>To:</td>
+		<td><input type="text" id="to" name="to"></td>
+	</tr>
+
+	<tr>
+		<td>Date:</td>
+		<td><input type="date" id="date" name="date"></td>
+	</tr>
+	<tr>
+		
+		<td><br>
+<select name="class">
+	<option value="allclasses"  selected="selected" >All CLasses</option>
+	<option value="AC3">AC 3 Tier</option>
+	<option value="AC2">AC 2 Tier</option>
+	<option value="sleeper">Sleeper</option>
+</select>
+</td>
+	</tr>
+	<tr>
+		<td>Flexible With Date<input type="checkbox" name="flex" ><br>
+		<td>Senior Citizen<input type="checkbox" name="senior" ><br>
+	</tr>
+	<tr><td><br><a href="list.xml " target="_self" ><button  style="color:black;font-size:15px;" >Find Trains</button></a</td>
+	</tr>
+</table>
+  
+  
+  
+  
+</div>
+</div>
+<script>
+
+
+	function swap()
+	{
+		
+		var  a=document.getElementById("from");
+		var b=document.getElementById("to");
+		var c=a.value;
+		a.value=b.value;
+		b.value=c;
+		
+	}
+</script>
+	
+</body>
+
+</html>
