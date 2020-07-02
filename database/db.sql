@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS custpro;
 
-CREATE TABLE`custpro`.`customer` ( `cid` INT NIT NULL, `name` TEXT , `address` TEXT , `email` TEXT , `phone` TEXT );
+CREATE TABLE`custpro`.`customer` ( `cid` INT NOT NULL, `name` TEXT , `address` TEXT , `email` TEXT , `phone` TEXT );
 
 CREATE TABLE`custpro`.`product` ( `pid` INT NOT NULL ,`name` TEXT , `type` TEXT , `barcode` TEXT, `price` FLOAT ) ;
 
