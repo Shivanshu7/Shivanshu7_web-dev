@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "vehicles")
+@RequestMapping(value = "customer")
 public class CustomerController {
 
     @Autowired
@@ -21,8 +21,8 @@ public class CustomerController {
         return customerService.GetAllCustomer ();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "{vin}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Customer FindCustomer(@PathVariable("vin") int cid)
+    @RequestMapping(method = RequestMethod.GET, value = "{cid}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Customer FindCustomer(@PathVariable("cid") int cid)
     {
         return customerService.FindCustomer ( cid);
     }
@@ -33,14 +33,14 @@ public class CustomerController {
         return customerService.Create ( objCustomer );
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "{vin}", consumes =MediaType.APPLICATION_JSON_UTF8_VALUE ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Customer update(@PathVariable("vin") int cid ,@RequestBody Customer objCustomer)
+    @RequestMapping(method = RequestMethod.PUT, value = "{cid}", consumes =MediaType.APPLICATION_JSON_UTF8_VALUE ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Customer update(@PathVariable("cid") int cid ,@RequestBody Customer objCustomer)
     {
-        return customerService.update ( strCustomerNumber,objCustomer );
+        return customerService.update ( cid,objCustomer );
     }
 
-    @RequestMapping(method = RequestMethod.DELETE,value = "{vin}")
-    public void Delete(@PathVariable("vin") int cid)
+    @RequestMapping(method = RequestMethod.DELETE,value = "{cid}")
+    public void Delete(@PathVariable("cid") int cid)
     {
         customerService.Delete ( cid );
 

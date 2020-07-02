@@ -1,9 +1,10 @@
 package com.web.repository;
 
-import com.web.entity.Customer;
+
+import com.web.entity.Product;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ICustomerRepository extends CrudRepository<Customer,String> {
+public interface IProductRepository extends CrudRepository<Product,String> {
 
   // Optional<Customer> findByid(int cid);
 

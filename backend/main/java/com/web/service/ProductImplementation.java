@@ -1,36 +1,36 @@
 package com.web.service;
 
-import com.web.entity.Customer;
+import com.web.entity.Product;
 import com.web.exception.BadRequestException;
-import com.web.exception.CustomerNotFoundException;
-import com.web.respository.ICustomerRepository;
+import com.web.exception.ProductNotFoundException;
+import com.web.respository.IProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional; 
+import java.util.Optional;
 
 @Service
-public class CustomerImplementation implements ICustomer {
+public class ProductImplementation implements IProduct {
 
     @Autowired
-    ICustomerRepository custRepo;
+    IProductRepository proRepo;
 
     @Override
     @Transactional (readOnly = true)
-    public List<Customer> GetAllCustomer() {
-        return (List<Customer>) custRepo.findAll();
+    public List<Product> GetAllProduct() {
+        return (List<Product>) proRepo.findAll();
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Customer FindCustomer(int cid) {
+    public Product FindProduct(int pid) {
        // optional is a wrapper on top of vehicle object
-        Optional<Customer> v1 = custRepo.findById(cid);
+        Optional<Product> v1 = proRepo.findById(pid);
         if(!v1.isPresent ())
         {
-            throw new CustomerNotFoundException ("Customer with id :" + cid +" not found");
+            throw new ProductNotFoundException ("Product with id :" + pid +" not found");
         }
         return v1.get();
        // return  null;
@@ -51,11 +51,11 @@ public class CustomerImplementation implements ICustomer {
 
     @Override
     @Transactional
-    public Customer Create(Customer objCustomer) {
-        Customer v1 = custRepo.save ( objCustomer );
+    public Product Create(Product objProduct) {
+        Product v1 = proRepo.save ( objProduct );
         if(v1 == null)
         {
-            throw new BadRequestException ("Customer  not created successfully:" + objCustomer.getname () +" not found");
+            throw new BadRequestException ("Product  not created successfully:" + objProduct.getname () +" not found");
         }
         return v1;
     }
@@ -63,24 +63,24 @@ public class CustomerImplementation implements ICustomer {
     @Override
     @Transactional // Have the benefit of applying to whatever layer you want to
     //Syncronized -- one thread at a time but trans gives rollback features
-    public Customer update(int cid, Customer objCustomer) {
-       Optional<Customer> v1 = custRepo.findById(cid);
+    public Product update(int pid, Product objProduct) {
+       Optional<Product> v1 = proRepo.findById(pid);
         if(!v1.isPresent ())
         {
-            throw new CustomerNotFoundException ("Customer with id :" + cid +" not found");
+            throw new ProductNotFoundException ("Product with id :" + pid +" not found");
         }
-        return   custRepo.save( objCustomer);
+        return   proRepo.save( objProduct);
       //  return  null;
     }
 
     @Override
     @Transactional
-    public void Delete(int cid) {
-        Optional<Customer> v1 = custRepo.findById(cid);
+    public void Delete(int pid) {
+        Optional<Product> v1 = proRepo.findById(pid);
         if(!v1.isPresent ())
         {
-            throw new CustomerNotFoundException ("Customer with id :" + cid +" not found");
+            throw new ProductNotFoundException ("Product with id :" + pid +" not found");
         }
-       custRepo.delete ( v1.get () );
+       proRepo.delete ( v1.get () );
     }
 }
