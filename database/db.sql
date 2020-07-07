@@ -4,7 +4,7 @@ CREATE TABLE`custpro`.`customer` ( `cid` INT NOT NULL, `name` TEXT , `address` T
 
 CREATE TABLE`custpro`.`product` ( `pid` INT NOT NULL ,`name` TEXT , `type` TEXT , `barcode` TEXT, `price` FLOAT ) ;
 
-CREATE TABLE`custpro`.`order` ( `cid` INT , `pid` INT , `Quantity` INT) ;
+CREATE TABLE`custpro`.`order` ( `cid` INT NOT NULL , `pid` INT NOT NULL, `Quantity` INT NOT NULL) ;
 
 insert into `custpro`.`customer` values(1, "Shivanshu", "Jamnagar", "ajaj@gmail.com", "884934727" );
 insert into `custpro`.`customer` values(2, "Ahbishek", "Ahmedabad", "abhi@gmail.com", "884544727" );
