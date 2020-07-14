@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Customer Product</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-blue w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">CUSTOMER PRODUCT</h1>
+  <p class="w3-xlarge">Table </p>
+  <button onclick="adddata()" class="w3-button w3-green w3-padding-large w3-large w3-margin-top">Add</button>
+ <button onclick="deldata()" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">View</button>
+ 
+ 
+ <div id="add"style="display:none">
+	<br>
+	<button onclick="adddivc()" class="w3-button w3-green w3-padding-small w3-large w3-margin-top">Customer</button>
+	<br>
+  
+	<button onclick="adddivp()" class="w3-button w3-green w3-padding-small w3-large w3-margin-top">Product</button>
+  
+	
+	</div>
+	 <div id="del"  style="display:none">
+	<br>
+	<button onclick="adddivdc()" class="w3-button w3-black w3-padding-small w3-large w3-margin-top">Customer</button>
+	<br>
+  
+	<button onclick="adddivdp()" class="w3-button w3-black w3-padding-small w3-large w3-margin-top">Product</button>
+  
+	
+	</div>
+	
+
+  
+</header>
+
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+	
+	
+  <div class="w3-content">
+  	
+  	
+    <div id="cform" style="display:none" class="w3-twothird">
+      <h1>Enter details for adding Customer</h1>
+      <form id="postc" class="w3-padding-32">
+      cid* :<input id="cid" type="numeric" name="cid" maxlength="20" size="20" required><br>
+      	
+Name* :<input id="cname"type="text" name="cname" maxlength="20" size="20" required><br>
+	
+E-mail* :<input id="email"type="text" name="email" maxlength="20" size="20" required><br>
+	
+Phone* :<input id="phone" type="text" name="phone" maxlength="20" size="20" required><br>
+	
+Address* :<input id="address" type="text" name="address" maxlength="80" size="20" required><br>  
+
+<input type="submit" value="Submit" class="w3-button w3-blue w3-padding-small w3-large w3-margin-top"> &nbsp&nbsp&nbsp
+<input type="Reset" value="Reset"  class="w3-button w3-blue w3-padding-small w3-large w3-margin-top">
+    
+      </form>
+
+      <p class="w3-text-grey"></p>
+    </div>
+    
+    
+  <div id="pform" style="display:none" class="w3-twothird">
+      <h1>Enter details for adding Product</h1>
+      <form id="postp" class="w3-padding-32">
+      pid* :<input type="numeric" name="cid" maxlength="20" size="20" required><br>
+      	
+Name* :<input id="pname" type="text" name="pname" maxlength="20" size="20" required><br>
+	
+Type* :<input id="type" type="text" name="typr" maxlength="20" size="20" required><br>
+	
+Barcode* :<input id="barcode" type="text" name="barcodd" maxlength="20" size="20" required><br>
+	
+Price* :<input id="price" type="text" name="price" maxlength="80" size="20" required><br>  
+
+<input type="submit" value="Submit" class="w3-button w3-blue w3-padding-small w3-large w3-margin-top"> &nbsp&nbsp&nbsp
+<input type="Reset" value="Reset"  class="w3-button w3-blue w3-padding-small w3-large w3-margin-top">  
+      </form>
+
+      <p class="w3-text-grey"></p>
+    </div>
+    
+    
+    
+    
+      <div id="dcform" style="display:none" class="w3-twothird">
+      <h1>Enter cid to view Customer details
+    </h1>
+      <form id="getc" class="w3-padding-32">
+      cid* :<input id="gcid" type="number" name="gcid" maxlength="20" size="20"><br>
+      	
+<input type="submit" value="Submit" class="w3-button w3-blue w3-padding-small w3-large w3-margin-top"> &nbsp&nbsp&nbsp
+<input type="Reset" value="Reset"  class="w3-button w3-blue w3-padding-small w3-large w3-margin-top">
+      </form>
+
+      <p class="w3-text-grey"></p>
+    </div>
+    
+    
+  <div id="dpform" style="display:none" class="w3-twothird">
+      <h1>Enter pid to view Product details</h1>
+      <form id="getp" class="w3-padding-32">
+      pid* :<input id="gpid" type="number" name="gpid" maxlength="20" size="20" ><br>
+   
+ 
+<input type="submit" value="Submit" class="w3-button w3-blue w3-padding-small w3-large w3-margin-top"> &nbsp&nbsp&nbsp
+<input type="Reset" value="Reset"  class="w3-button w3-blue w3-padding-small w3-large w3-margin-top">
+      </form>
+
+      <p class="w3-text-grey"></p>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+   
+<!-- Second Grid -->
+
+    <div class="w3-twothird">
+      <h1></h1>
+      <h5 class="w3-padding-32"></h5>
+
+      <p class="w3-text-grey"></p>
+    </div>
+  </div>
+</div>
+
+<div id ="list" class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+  <div class="w3-xlarge w3-padding-32">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+ </div>
+ 
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+
+function deldata() {
+  var x = document.getElementById("add");
+  var y = document.getElementById("del");
+    y.style.display = "block";
+  
+    x.style.display = "none";
+  
+} 
+function adddata() {
+  var x = document.getElementById("add");
+  var y = document.getElementById("del");
+    x.style.display = "block";
+  
+    y.style.display = "none";
+  
+} 
+
+
+
+
+
+
+function adddivp() {
+  var x = document.getElementById("cform");
+  var y = document.getElementById("pform");
+  var p = document.getElementById("dcform");
+  var q = document.getElementById("dpform"); 
+    y.style.display = "block";
+  
+    x.style.display = "none";
+
+p.style.display = "none";
+  
+    q.style.display = "none";
+  
+} 
+function adddivc() {
+  var x = document.getElementById("cform");
+  var y = document.getElementById("pform");
+  var p = document.getElementById("dcform");
+  var q = document.getElementById("dpform");
+    x.style.display = "block";
+  
+    y.style.display = "none";
+
+p.style.display = "none";
+  
+    q.style.display = "none";
+  
+} 
+function adddivdp() {
+  var x = document.getElementById("dcform");
+  var y = document.getElementById("dpform");
+  var p = document.getElementById("cform");
+  var q = document.getElementById("pform");
+    y.style.display = "block";
+  
+    x.style.display = "none";
+
+    p.style.display = "none";
+  
+    q.style.display = "none";
+  
+} 
+function adddivdc() {
+  var x = document.getElementById("dcform");
+  var y = document.getElementById("dpform");
+  var p = document.getElementById("cform");
+  var q = document.getElementById("pform");
+    x.style.display = "block";
+  
+    y.style.display = "none";
+  
+    p.style.display = "none";
+  
+    q.style.display = "none";
+  
+} 
+
+
+
+</script>
+
+</body>
+
+
+<script>
+$(document).ready(function() {
+	      $("#getc").submit (function () {
+    
+        $.ajax({
+            url: "http://localhost:8001/api/customer/" + $("#gcid").val ,
+            type:"GET",
+            success: function (result) {
+                
+               
+                   $("#list").html(result)
+                
+            }
+            <!--,
+            error: function (jqXHR, exception) {
+                if (jqXHR.status === 0) {
+                    $("#error h6").html('Not connect.\n Verify Network.');
+                } else if (jqXHR.status == 404) {
+                    $("#error h6").html('Requested page not found. [404]');
+                } else if (jqXHR.status == 500) {
+                    $("#error h6").html('Internal Server Error [500].');
+                } else if (exception === 'parsererror') {
+                    $("#error h6").html('Requested JSON parse failed.');
+                } else if (exception === 'timeout') {
+                    $("#error h6").html('Time out error.');
+                } else if (exception === 'abort') {
+                    $("#error h6").html('Ajax request aborted.');
+                } else {
+                    $("#error h6").html(jqXHR.responseText);
+                }
+            }-->
+    });
+});
+});
+
+
+
+
+
+$(document).ready(function() {
+	      $("#getp").submit (function () {
+    
+        $.ajax({
+            url: "http://localhost:8001/api/product/" + $("#gpid").val ,
+            type:"GET",
+            success: function (result) {
+                
+               
+                   $("#list").html(result)
+                
+            }
+            <!--,
+            error: function (jqXHR, exception) {
+                if (jqXHR.status === 0) {
+                    $("#error h6").html('Not connect.\n Verify Network.');
+                } else if (jqXHR.status == 404) {
+                    $("#error h6").html('Requested page not found. [404]');
+                } else if (jqXHR.status == 500) {
+                    $("#error h6").html('Internal Server Error [500].');
+                } else if (exception === 'parsererror') {
+                    $("#error h6").html('Requested JSON parse failed.');
+                } else if (exception === 'timeout') {
+                    $("#error h6").html('Time out error.');
+                } else if (exception === 'abort') {
+                    $("#error h6").html('Ajax request aborted.');
+                } else {
+                    $("#error h6").html(jqXHR.responseText);
+                }
+            }-->
+    });
+});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function() {
+	      $("#postc").submit (function () {
+    
+        $.ajax({
+            url: "http://localhost:8001/api/customer",
+            type:"POST",
+            data:{
+            	"cid":$("#cid").val,
+            	"name":$("#cname").val,
+            	"address":$("#address").val,
+            	"email":$("#email").val,
+            	"phone":$("#phone").val,
+            },
+            success: function (result) {
+            	console.log(result)
+            	$.each(result ,function(key, value){
+            	console.log(key,value)
+            	if(valur["make"]==null)
+            	$("#list").append("<p>Data is Null</p>")           
+            	else
+            	$("#list").append("<p>"+value["make"]+"</p>")
+            	}
+            	);
+                
+               
+                  
+                
+            }
+            <!--,
+            error: function (jqXHR, exception) {
+                if (jqXHR.status === 0) {
+                    $("#error h6").html('Not connect.\n Verify Network.');
+                } else if (jqXHR.status == 404) {
+                    $("#error h6").html('Requested page not found. [404]');
+                } else if (jqXHR.status == 500) {
+                    $("#error h6").html('Internal Server Error [500].');
+                } else if (exception === 'parsererror') {
+                    $("#error h6").html('Requested JSON parse failed.');
+                } else if (exception === 'timeout') {
+                    $("#error h6").html('Time out error.');
+                } else if (exception === 'abort') {
+                    $("#error h6").html('Ajax request aborted.');
+                } else {
+                    $("#error h6").html(jqXHR.responseText);
+                }
+            }-->
+    });
+});
+});
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function() {
+	      $("#postp").submit (function () {
+    
+        $.ajax({
+            url: "http://localhost:8001/api/product",
+            type:"POST",
+            data:{
+            	"pid":$("#pid").val,
+            	"name":$("#pname").val,
+            	"type":$("#type").val,
+            	"barcode":$("#barcode").val,
+            	"price":$("#price").val,
+            },
+            success: function (result) {
+            	console.log(result)
+            	$.each(result ,function(key, value){
+            	console.log(key,value)
+            	if(valur["make"]==null)
+            	$("#list").append("<p>Data is Null</p>")           
+            	else
+            	$("#list").append("<p>"+value["make"]+"</p>")
+            	}
+            	);
+                
+               
+                  
+                
+            }
+            <!--,
+            error: function (jqXHR, exception) {
+                if (jqXHR.status === 0) {
+                    $("#error h6").html('Not connect.\n Verify Network.');
+                } else if (jqXHR.status == 404) {
+                    $("#error h6").html('Requested page not found. [404]');
+                } else if (jqXHR.status == 500) {
+                    $("#error h6").html('Internal Server Error [500].');
+                } else if (exception === 'parsererror') {
+                    $("#error h6").html('Requested JSON parse failed.');
+                } else if (exception === 'timeout') {
+                    $("#error h6").html('Time out error.');
+                } else if (exception === 'abort') {
+                    $("#error h6").html('Ajax request aborted.');
+                } else {
+                    $("#error h6").html(jqXHR.responseText);
+                }
+            }-->
+    });
+});
+});
+
+
+</script>
+
+
+
+
+
+
+</html>
