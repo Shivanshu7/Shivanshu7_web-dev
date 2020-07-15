@@ -82,7 +82,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div id="cform" style="display:none" class="w3-twothird">
       <h1>Enter details for adding Customer</h1>
       <form id="postc" class="w3-padding-32">
-      cid* :<input id="cid" type="numeric" name="cid" maxlength="20" size="20" required><br>
+      cid* :<input id="cid" type="number" name="cid" maxlength="20" size="20" required><br>
       	
 Name* :<input id="cname"type="text" name="cname" maxlength="20" size="20" required><br>
 	
@@ -104,7 +104,7 @@ Address* :<input id="address" type="text" name="address" maxlength="80" size="20
   <div id="pform" style="display:none" class="w3-twothird">
       <h1>Enter details for adding Product</h1>
       <form id="postp" class="w3-padding-32">
-      pid* :<input type="numeric" name="cid" maxlength="20" size="20" required><br>
+      pid* :<input type="number" name="cid" maxlength="20" size="20" required><br>
       	
 Name* :<input id="pname" type="text" name="pname" maxlength="20" size="20" required><br>
 	
@@ -300,7 +300,7 @@ $(document).ready(function() {
                    $("#list").html(result)
                 
             }
-            <!--,
+            ,
             error: function (jqXHR, exception) {
                 if (jqXHR.status === 0) {
                     $("#error h6").html('Not connect.\n Verify Network.');
@@ -317,7 +317,7 @@ $(document).ready(function() {
                 } else {
                     $("#error h6").html(jqXHR.responseText);
                 }
-            }-->
+            }
     });
 });
 });
@@ -338,7 +338,7 @@ $(document).ready(function() {
                    $("#list").html(result)
                 
             }
-            <!--,
+            ,
             error: function (jqXHR, exception) {
                 if (jqXHR.status === 0) {
                     $("#error h6").html('Not connect.\n Verify Network.');
@@ -355,7 +355,7 @@ $(document).ready(function() {
                 } else {
                     $("#error h6").html(jqXHR.responseText);
                 }
-            }-->
+            }
     });
 });
 });
@@ -401,7 +401,7 @@ $(document).ready(function() {
                   
                 
             }
-            <!--,
+            ,
             error: function (jqXHR, exception) {
                 if (jqXHR.status === 0) {
                     $("#error h6").html('Not connect.\n Verify Network.');
@@ -418,7 +418,7 @@ $(document).ready(function() {
                 } else {
                     $("#error h6").html(jqXHR.responseText);
                 }
-            }-->
+            }
     });
 });
 });
@@ -461,7 +461,7 @@ $(document).ready(function() {
                   
                 
             }
-            <!--,
+            ,
             error: function (jqXHR, exception) {
                 if (jqXHR.status === 0) {
                     $("#error h6").html('Not connect.\n Verify Network.');
@@ -478,7 +478,7 @@ $(document).ready(function() {
                 } else {
                     $("#error h6").html(jqXHR.responseText);
                 }
-            }-->
+            }
     });
 });
 });
